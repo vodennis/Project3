@@ -1,16 +1,18 @@
 import express from "express";
-import loaders from "../loaders";
+import loaders from "./loaders";
+import "reflect-metadata";
 
 export async function startServer() {
   const app = express();
-  await loaders({ app });
+  await loaders({ expressApp:app });
+  const port = 5000;
 
-  app.listen(5000, (err?: unknown) => {
+  app.listen(port, (err?: unknown) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
-    console.log("server has started");
+    console.log(port);
   });
 }
 
