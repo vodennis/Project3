@@ -6,8 +6,7 @@ export default class IngredientService {
   constructor (){}
   async getIngredients() {
     const pool: Pool = Container.get("pool");
-    const result = await pool.query("SELECT * from ingredients");
+    const result = await pool.query("SELECT * FROM public.ingredients");
     return result.rows;
-    //ALL LOGIC GOES HERE
   }
 }

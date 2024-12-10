@@ -1,12 +1,14 @@
 import { useGenerate } from "../../hooks/useGenerate";
 import { Input } from "./input";
+import "./Generate.css";
+
+
 
 export function Generate() {
   const { selectedIngredients } = useGenerate();
   return (
-    <>
-      <p>GENERATE PAGE</p>
+    <div className="generate-page">
       <Input></Input>
-    </>
+    </div>
   );
 }

@@ -5,8 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const ingredient_1 = __importDefault(require("./ingredient"));
 const user_1 = __importDefault(require("./user"));
+const recipe_1 = __importDefault(require("./recipe"));
 const controllers = {
     ingredient: ingredient_1.default,
     user: user_1.default,
+    recipe: recipe_1.default
 };
 exports.default = controllers;

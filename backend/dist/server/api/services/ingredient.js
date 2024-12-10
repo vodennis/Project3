@@ -81,9 +81,9 @@ let IngredientService = (() => {
         constructor() { }
         async getIngredients() {
             const pool = typedi_1.default.get("pool");
-            const result = await pool.query("SELECT * from ingredients");
+            // Qualify the table with public schema
+            const result = await pool.query("SELECT * FROM public.ingredients");
             return result.rows;
-            //ALL LOGIC GOES HERE
         }
     };
     __setFunctionName(_classThis, "IngredientService");

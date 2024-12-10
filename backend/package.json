@@ -11,9 +11,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.3",
     "cookie-parser": "^1.4.7",
     "cores": "^0.8.5",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "method-override": "^3.0.0",
     "pg": "^8.13.1",

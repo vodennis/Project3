@@ -1,18 +1,24 @@
 import { Pool } from "pg";
 import { Container } from "typedi";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default async () => {
   try {
     const pool = new Pool({
-      user: "postgres",
-      host: "localhost",
-      database: "postgres",
-      port: parseInt(process.env.DB_PORT || "5432"),
+      connectionString: process.env.DATABASE_URL,
+      ssl: {
+        rejectUnauthorized: false,
+      },
     });
 
-    // Register the pool in the container
+    // Set the search path to public after connecting the pool
+    await pool.query('SET search_path TO public');
+
     Container.set("pool", pool);
 
+    console.log("Connected to PostgreSQL (Supabase) database successfully.");
     return pool;
   } catch (error) {
     console.error("Error connecting to PostgreSQL:", error);
